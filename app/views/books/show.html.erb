@@ -16,7 +16,7 @@
             <%= @book.user.name %>
             <% end %>
           </td>
-          <td><%= link_to @book.title, @book %></td>
+          <td><%= link_to @book.title %></td>
           <td><%= @book.body %></td>
           <% if @book.favorited_by?(current_user) %>
           <td>

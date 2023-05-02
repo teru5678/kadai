@@ -3,11 +3,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page]).reverse_order
-    @following_users = @user.following_user
-    @follower_users = @user.folower_user
     @books = @user.books
     @book = Book.new
+    @following_users = @user.following_user
+    @follower_users = @user.follower_user
   end
 
   def index
@@ -28,13 +27,13 @@ class UsersController < ApplicationController
   end
   
   def follows
-    user = User.find(params[:id])
-    @users = user.following_user.page(params[:page]).per(3).reverse_order
+    @user = User.find(params[:id])
+    @users = @user.following_user
   end
   
   def followers
-    user = User.fimd(params[:id])
-    @users = user.follower_user.page(params[:page]).per(3).reverse_order
+    @user = User.find(params[:id])
+    @users = @user.follower_user
   end
   
   private
