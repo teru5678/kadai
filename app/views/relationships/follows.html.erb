@@ -9,13 +9,13 @@
       </tr>
     </thead>
     <tbody>
+    <% @users.each do |user| %>
       <tr>
-        <% @users.each do |user| %>
         <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
         <td><%= user.name %></td>
         <td><%= user.follower_user.count %></td>
-        <% end %>
       </tr>
+        <% end %>
     </tbody>
     <% else %>
       <p>ユーザーはいません</p>
